@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style type="text/css">
+    h1 {
+        color:red;
+        text-align: center;
+        text-transform:capitalize;
+        font-family: myFirstFont;
+    }
+    p {color:blue}
+   .mouseOver, #gameImgDiv,#HomepageTable {
+        display: inline-block;
+        vertical-align: top;
+       
+    }
+   #gameImgDiv{
+
+   }
+   figcaption.popup{
+       padding: 10px;
+       background: #e1e1e1;
+       position: absolute;
+       visibility: hidden;
+       -webkit-box-shadow:0 0 15px #A9A9A9;
+       -moz-box-shadow:0 0 15px #A9A9A9;
+       box-shadow:0 0 15px #A9A9A9;
+   }
+   figure.mouseOver:hover figcaption.popup{
+       position : absolute;
+       top: 0;
+       left: 100px;
+       visibility: visible;
+   }
+   #gameImg{
+
+   }
+
+    @font-face {
+        font-family: myFirstFont;
+        src: url(titanone-regular-webfont.woff2);
+    }
+
+</style>
+</head>
+<body>
+<h1>Fall Guys: Ultimate Knockout</h1>
+
+<figure class = "mouseOver">
+<div id = "gameImgDiv">
+
+        <img id = "gameImg" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1097150/header.jpg?t=1597424899" alt="Fall Guys Image" />
+</div>
+
+     <figcaption class = "popup">
+
+        <img src = "https://fallguys.com/svgs/logo-july2020.svg" alt="Fall Guys Image" />
+         <p>Fall Guys is a massively multiplayer party game with up
+             to 60 players online in a free-for-all <br />struggle through round after round of escalating chaos until one victor remains!</p>
+
+    </figcaption>
+
+</figure>
+<table border="0" id="HomepageTable">
+    <tr>
+        <td>
+           <iframe width="420" height="315"
+                src="https://www.youtube.com/embed/Wj3dUvGLjNQ?autoplay=1&mute=1">
+           </iframe>
+
+        </td>
+        <td border=3 height=100 width=100>
+
+        </td>
+
+</tr>
+</table>
+<a href="https://fallguys.com/" onClick="linkConfirm()" >
+<p>Check the official site</p>
+</a>
+
+
+</div>
+</body>
+</html>

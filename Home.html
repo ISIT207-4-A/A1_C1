@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style type="text/css">
+    h1 {
+        color:red;
+        text-align: center;
+        text-transform:capitalize;
+        font-family: myFirstFont;
+    }
+    p {
+        color:darkgrey;
+        font-family: myFirstFont;
+    }
+   .mouseOver, #gameImgDiv,#HomepageTable {
+        display: inline-block;
+        vertical-align: top;
+
+    }
+   #gameImgDiv{
+
+   }
+   figcaption.popup{
+       padding: 10px;
+       background: #e1e1e1;
+       position: absolute;
+       visibility: hidden;
+       -webkit-box-shadow:0 0 15px #A9A9A9;
+       -moz-box-shadow:0 0 15px #A9A9A9;
+       box-shadow:0 0 15px #A9A9A9;
+   }
+   figure.mouseOver:hover figcaption.popup{
+       position : absolute;
+       top: 0;
+       left: 100px;
+       visibility: visible;
+   }
+   #gameImg{
+
+   }
+
+    @font-face {
+        font-family: myFirstFont;
+        src: url(titanone-regular-webfont.woff2);
+    }
+
+</style>
+</head>
+<body>
+<h1>Fall Guys: Ultimate Knockout</h1>
+
+
+<a href="https://fallguys.com/"  >
+<figure class = "mouseOver">
+<div id = "gameImgDiv">
+
+        <img id = "gameImg" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1097150/header.jpg?t=1597424899" alt="Fall Guys Image" />
+</div>
+
+     <figcaption class = "popup">
+
+        <img src = "https://fallguys.com/svgs/logo-july2020.svg" alt="Fall Guys Image" />
+         <p>Fall Guys is a massively multiplayer party game with up
+             to 60 players online in a free-for-all <br />struggle through round after round of escalating chaos until one victor remains!</p>
+
+    </figcaption>
+
+</figure>
+</a>
+
+
+<table border="0" id="HomepageTable">
+    <tr>
+        <td>
+           <iframe width="420" height="315"
+                src="https://www.youtube.com/embed/Wj3dUvGLjNQ?autoplay=1&mute=1">
+           </iframe>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <!-- information stands for designer and publisher's information and the rate in steam, better have different style -->
+            <a href="https://www.devolverdigital.com/" >
+                <p class = "information" id = "publisher">
+                    Publisher: Devolver Digital <img height = "50px" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/02/Devolver_Digital.svg/1920px-Devolver_Digital.svg.png" />
+                </p>
+            </a>
+            <a href="https://www.mediatonicgames.com/">
+                <p class = "information" id = "designer">
+                    Designer: Mediatonic <img height = "50px" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/09/Mediatonic.svg/1280px-Mediatonic.svg.png" />
+                </p>
+            </a>
+            <a href="https://store.steampowered.com/app/1097150/Fall_Guys_Ultimate_Knockout/#app_reviews_hash/">
+                <p class = "information" id = "rates">
+                   See Steam players' review about this game.
+                </p>
+            </a>
+
+        </td>
+    </tr>
+
+</table>
+
+<div class = "logoDiv">
+    <p>Supported Platform</p>
+    <img id = "steamLogo" src = "https://store.cloudflare.steamstatic.com/public/shared/images/header/globalheader_logo.png?t=962016" />
+    <img id = "PS4Logo"   src = "https://psmedia.playstation.com/is/image/psmedia/ps4-hardware-contextual-nav-icon-01-en-09apr19_1556030268361?$ContextualNav_Logo$" />
+</div>
+
+</body>
+</html>

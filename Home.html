@@ -1,178 +1,213 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <style type="text/css">
+        h1 {
+            color:rgb(255, 255, 255);
+            font-size: 40px;
+            text-align: center;
+            text-transform:capitalize;
+            font-family: myFirstFont;
+            filter: drop-shadow(10px 10px 4px rgb(0, 0, 0));
+        }
+        p {
+            color:darkgrey;
+            font-family: myFirstFont;
+        }
+        .mouseOver, #gameImgDiv,#HomepageTable {
+            display: inline-block;
+            vertical-align: top;
 
-<style type="text/css">
-    h1 {
-        color:rgb(255, 255, 255);
-		font-size: 40px;
-        text-align: center;
-        text-transform:capitalize;
-        font-family: myFirstFont;
-		filter: drop-shadow(10px 10px 4px rgb(0, 0, 0));
-    }
-    p {
-        color:darkgrey;
-        font-family: myFirstFont;
-    }
-   .mouseOver, #gameImgDiv,#HomepageTable {
-        display: inline-block;
-        vertical-align: top;
+        }
+        #gameImgDiv{
 
-    }
-   #gameImgDiv{
+        }
+        figcaption.popup{
+            padding: 10px;
+            background: #e1e1e1;
+            position: absolute;
+            visibility: hidden;
+            -webkit-box-shadow:0 0 15px #A9A9A9;
+            -moz-box-shadow:0 0 15px #A9A9A9;
+            box-shadow:0 0 15px #A9A9A9;
+            width: 600px;
+            height: auto;
+        }
+        figure.mouseOver:hover figcaption.popup{
+            position: absolute;
+            top: 50px;
+            left: 400px;
+            visibility: visible;
+        }
 
-   }
-   figcaption.popup{
-       padding: 10px;
-       background: #e1e1e1;
-       position: absolute;
-       visibility: hidden;
-       -webkit-box-shadow:0 0 15px #A9A9A9;
-       -moz-box-shadow:0 0 15px #A9A9A9;
-       box-shadow:0 0 15px #A9A9A9;
-		width: 600px;
-		height: auto;
-   }
-   figure.mouseOver:hover figcaption.popup{
-       position: absolute;
-       top: 50px;
-       left: 400px;
-       visibility: visible;
-   }
+        #gameImg{
 
-   #gameImg{
+        }
 
-   }
+        @font-face {
+            font-family: myFirstFont;
+            src: url(titanone-regular-webfont.woff2);
+        }
 
-    @font-face {
-        font-family: myFirstFont;
-        src: url(titanone-regular-webfont.woff2);
-    }
+        body {
+            background: #3c3d40;
+            margin: auto;
+        }
 
-	body {
-		background: #3c3d40;
-		margin: auto;
-	}
-	
-	.topnav {
-  		overflow: hidden;
-  		background-color: #1f1a1a;
-		width: 100%;
-	}
-	
-	.topnav a {
-  		float: left;
-  		color: lightgrey;
-  		text-align: center;
-  		padding: 30px 30px;
-  		text-decoration: none;
-  		font-size: 17px;
-		font-family: myFirstFont;
-        src: url(titanone-regular-webfont.woff2);
+        .topnav {
+            overflow: hidden;
+            background-color: #1f1a1a;
+            width: 100%;
+        }
 
-	}
+        .topnav a {
+            float: left;
+            color: lightgrey;
+            text-align: center;
+            padding: 30px 30px;
+            text-decoration: none;
+            font-size: 17px;
+            font-family: myFirstFont;
+            src: url(titanone-regular-webfont.woff2);
 
-	.topnav a:hover {
-		color: white;
-		background: black;
-	}
-	
-	.navbar {
-		  overflow: hidden;
-		  background-color: #333;
-		  position: fixed;
-		  bottom: 0;
-		  width: 100%;
-		
-	}
+        }
 
-	.navbar a {
-		  float: left;
-		  display: block;
-		  color: lightgrey;
-		  text-align: center;
-			padding: 30px 30px;
-  			text-decoration: none;
-  			font-size: 17px;
-			font-family: myFirstFont;
-        	src: url(titanone-regular-webfont.woff2);
-	}
-	
-	.navbar img {
-		padding: 30px 30px;
-	}
-	
-	.information {
-		color: white;
-	}
-	
+        .topnav a:hover {
+            color: white;
+            background: black;
+        }
 
-</style>
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: lightgrey;
+            text-align: center;
+            padding: 30px 30px;
+            text-decoration: none;
+            font-size: 17px;
+            font-family: myFirstFont;
+            src: url(titanone-regular-webfont.woff2);
+        }
+
+        .navbar img {
+            padding: 30px 30px;
+        }
+
+        .information {
+            color: white;
+        }
+
+        #FinishPoint{
+            width: 350px;
+            height: 70px;
+            padding: 10px;
+            border: 1px solid #aaaaaa;
+        }
+    </style>
+    <script>
+        // drag-N-drop referenced from examples from CSIT128 lecture slides
+        function dragOver(event){
+            event.preventDefault();
+        }
+        function dragStart(event){
+        // get the dragged element ID
+            var dragId = event.target.id;
+
+        // store the dragged element ID into the  dataTransfer object
+            event.dataTransfer.setData("dragId", dragId);
+        }
+        function drop(event) {
+            // get the drop element ID
+
+            var dropId = event.target.id;
+            // retrieve the dragged element ID from the dataTransfer object
+            var dragId = event.dataTransfer.getData("dragId");
+            // do the dropping logic
+            grats();
+        }
+        function grats(){
+            var dropElement = document.getElementById("FinishPoint");
+            dropElement.innerHTML = "Congratulations!";
+
+            var audio = new Audio("397435__foolboymedia__crowd-cheer-ii.wav");
+            // the audio have 20s in total, only play for 2s
+            audio.currentTime=18;
+            audio.play();
+        }
+    </script>
 </head>
 
 <body>
 
 <!-- Top navigator -->
 <div class = "topnav">
-	<a class = "active" href="Home.html">HOME</a>
-	<a href="Addsomething.html">STORE</a>
-	<a href="form.html">CHECK OUT</a>
+    <a class = "active" href="Home.html">HOME</a>
+    <a href="Addsomething.html">STORE</a>
+    <a href="form.html">CHECK OUT</a>
 </div>
 
 <div style="display: table; vertical-align: center; margin: auto;">
-<h1>Fall Guys: Ultimate Knockout</h1>
+    <h1>Fall Guys: Ultimate Knockout</h1>
 
 
-<figure class = "mouseOver">
-<div id = "gameImgDiv">
+    <figure class = "mouseOver">
+        <div id = "gameImgDiv">
 
-        <img style="border-radius: 25px;" id = "gameImg" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1097150/header.jpg?t=1597424899" alt="Fall Guys Image" />
-</div>
+            <img style="border-radius: 25px;" id = "gameImg" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1097150/header.jpg?t=1597424899" alt="Fall Guys Image" />
+        </div>
 
-     <figcaption style="background: black; border-radius: 25px;" class = "popup">
+        <figcaption style="background: black; border-radius: 25px;" class = "popup">
 
-        <img style="width:500px; display: block; margin: auto;" src = "https://fallguys.com/svgs/logo-july2020.svg" alt="Fall Guys Image" />
-        <br /><br />
-		<p style="margin: auto; color: white;">Fall Guys is a massively multiplayer party game with up to 60 players online in a free-for-all struggle through round after round of escalating chaos until one victor remains!</p>
+            <img style="width:500px; display: block; margin: auto;" src = "https://fallguys.com/svgs/logo-july2020.svg" alt="Fall Guys Image" />
+            <br /><br />
+            <p style="margin: auto; color: white;">Fall Guys is a massively multiplayer party game with up to 60 players online in a free-for-all struggle through round after round of escalating chaos until one victor remains!</p>
 
-    </figcaption>
+        </figcaption>
 
-</figure>
-</a>
+    </figure>
+    </a>
 
 
-<table border="0" id="HomepageTable">
-    <tr>
-        <td>
-           <iframe  style="border-radius: 25px;" width="420" height="315"
-                src="https://www.youtube.com/embed/Wj3dUvGLjNQ?autoplay=1&mute=1">
-           </iframe>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <!-- information stands for designer and publisher's information and the rate in steam, better have different style -->
-            <a style="text-decoration: none;" href="https://www.devolverdigital.com/" target="_blank" >
-                <p class = "information" id = "publisher">
-                    Publisher: Devolver Digital <img style="float:right;" height = "30px" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/02/Devolver_Digital.svg/1920px-Devolver_Digital.svg.png" />
-                </p>
-            </a>
-            <a style="text-decoration: none;" href="https://www.mediatonicgames.com/" target="_blank" >
-                <p class = "information" id = "designer">
-                    Designer: Mediatonic <img style="float:right;" height = "30px" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/09/Mediatonic.svg/1280px-Mediatonic.svg.png" />
-                </p>
-            </a>
-            <a style="text-decoration: none;" href="https://store.steampowered.com/app/1097150/Fall_Guys_Ultimate_Knockout/#app_reviews_hash/" target="_blank">
-                <p class = "information" id = "rates">
-                   See Steam players' review about this game.
-                </p>
-            </a>
+    <table border="0" id="HomepageTable">
+        <tr>
+            <td>
+                <iframe  style="border-radius: 25px;" width="420" height="315"
+                         src="https://www.youtube.com/embed/Wj3dUvGLjNQ?autoplay=1&mute=1">
+                </iframe>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <!-- information stands for designer and publisher's information and the rate in steam, better have different style -->
+                <a style="text-decoration: none;" href="https://www.devolverdigital.com/" target="_blank" >
+                    <p class = "information" id = "publisher">
+                        Publisher: Devolver Digital <img style="float:right;" height = "30px" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/02/Devolver_Digital.svg/1920px-Devolver_Digital.svg.png" />
+                    </p>
+                </a>
+                <a style="text-decoration: none;" href="https://www.mediatonicgames.com/" target="_blank" >
+                    <p class = "information" id = "designer">
+                        Designer: Mediatonic <img style="float:right;" height = "30px" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/09/Mediatonic.svg/1280px-Mediatonic.svg.png" />
+                    </p>
+                </a>
+                <a style="text-decoration: none;" href="https://store.steampowered.com/app/1097150/Fall_Guys_Ultimate_Knockout/#app_reviews_hash/" target="_blank">
+                    <p class = "information" id = "rates">
+                        See Steam players' review about this game.
+                    </p>
+                </a>
 
-        </td>
-    </tr>
+            </td>
+        </tr>
 
-</table>
+    </table>
 </div>
 
 <div class = "navbar">
@@ -180,6 +215,12 @@
     <img style="width:100px;" id = "steamLogo" src = "https://store.cloudflare.steamstatic.com/public/shared/images/header/globalheader_logo.png?t=962016" />
     <img style="width:100px;" id = "PS4Logo"   src = "https://psmedia.playstation.com/is/image/psmedia/ps4-hardware-contextual-nav-icon-01-en-09apr19_1556030268361?$ContextualNav_Logo$" />
 </div>
+
+<img id="DragItem" src = "https://fallguys.com/images/fall-guy-ce-01.png" draggable="true" onDragStart="dragStart(event)" />
+
+<span id="FinishPoint" onDrop="drop(event)"
+      onDragOver="dragOver(event)">Drop this guy here</span>
+
 
 </body>
 </html>

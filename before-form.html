@@ -5,9 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Page</title>
     <link rel="stylesheet" href="before-form.css">
+
+    <script>
+        function uncheck()
+        {
+            var temp = document.getElementsByTagName("input");
+            for (i in temp)
+            {
+                if (temp[i].type == "checkbox")
+                    temp[i].checked = false;
+            }
+        }
+
+        var items = {
+            cp: 0,
+            ffcp: 0,
+            ost: 0,
+            totalPrice : function() {
+                return (this.cp + this.ffcp + this.ost);
+            }
+        };
+
+        var itemNames = {
+                cp: "Collectors Pack",
+                ffcp: "Fast Food Custom Pack",
+                ost: "OST",
+            };
+
+        function addToCart()
+        {
+            document.getElementById("cp").checked 
+                ? items["cp"] = Number(document.getElementById("cp").value) 
+                : items["cp"] = 0;
+            document.getElementById("ffcp").checked 
+                ? items["ffcp"] = Number(document.getElementById("ffcp").value) 
+                : items["ffcp"] = 0;
+            document.getElementById("ost").checked 
+                ? items["ost"] = Number(document.getElementById("ost").value) 
+                : items["ost"] = 0;
+
+            displayPrice(items.totalPrice());
+            displayItems(items);
+        }
+
+        function displayPrice(price)
+        {
+            document.getElementById("price-display").innerHTML = "$" + price;
+        }
+
+        function displayItems(items)
+        {
+            const keys = Object.keys(items);
+            const values = Object.values(items);
+            keys.pop();
+            var ul = document.getElementById("carts-items");
+            console.log(keys);
+            console.log(values);
+        
+            for (index in keys)
+            {
+                var key = keys[index];
+                
+                if (items[key] != 0) {
+                    if (document.getElementById(itemNames[key]) == null)
+                    {
+                        var li = document.createElement("li");
+                        li.appendChild(document.createTextNode(itemNames[key]));
+                        li.id = itemNames[key];
+                        ul.appendChild(li);                    
+                    }
+                    
+                } else {
+                    if (document.getElementById(itemNames[key]) != null)
+                        document.getElementById(itemNames[key]).remove(); 
+                }
+            }
+            
+        }
+    </script>
 </head>
-<body>
-    <form action="form.html" method="get">
+<body onload="uncheck()">
     <table id="wrapper">
         <tr>
             <th colspan="2">FALL GUYS</th>
@@ -20,31 +97,37 @@
                                     background-position: center;"></td>
             <td>
                 <div class="extension-pack">
-                    <p>Fall Guys: Collectors Pack</p>
-                    <input type="radio" id="cp" name="cp" value="checked">
+                    <label class="container">Fall Guys: Collectors Pack - $5
+                        <input type="checkbox" id="cp" name="cp" value=5>
+                        <span class="checkmark"></span>
+                    </label>
                 </div>
             </td>
         </tr>
         <tr>
             <td>
                 <div class="extension-pack">
-                    <p>Fall Guys - Fast Food Custom Pack</p>
-                    <input type="radio" id="ffcp" name="ffcp" value="checked">
+                    <label class="container">Fall Guys - Fast Food Custom Pack - $7
+                        <input type="checkbox" id="ffcp" name="ffcp" value=7>
+                        <span class="checkmark"></span>
+                    </label>
                 </div>
             </td>
         </tr>
         <tr>
             <td>
                 <div class="extension-pack">
-                    <p>Fall Guys - OST</p>
-                    <input type="radio" id="ost" name="ost" value="checked">
+                    <label class="container">Fall Guys - OST - $3
+                        <input type="checkbox" id="ost" name="ost" value=3>
+                        <span class="checkmark"></span>
+                    </label>
                 </div>
             </td>
         </tr>
         <tr>
             <td colspan="2">
                 <div class="submit-button">
-                    <input id="submit" type="submit" value="Add to Cart">                                 
+                    <button id="submit" onClick="addToCart()">Add to Cart</button>                               
                 </div>               
             </td>
         </tr>
@@ -56,7 +139,16 @@
                 Recommend system requirements
             </td>
         </tr>
-    </table>
-</form>
+        <tr class="last-row">
+            <td>
+                <h3>Your cart's items:</h3>
+                <ul id="carts-items">
+                </ul>
+            </td>
+            <td id="total-price">
+                <h3>Total price: </h3>
+                <p id="price-display">$0</p>
+            </td>
+        </tr>
 </body>
 </html>

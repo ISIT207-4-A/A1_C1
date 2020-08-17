@@ -50,6 +50,9 @@
 
             displayPrice(items.totalPrice());
             displayItems();
+
+            //update form's total price after addition
+            document.getElementById("total-price").value = items.totalPrice();
         }
 
         function displayPrice(price)
@@ -110,6 +113,8 @@
             displayItems();
             displayPrice(items.totalPrice());
             
+            //update form's total price after removal
+            document.getElementById("total-price").value = items.totalPrice();
         }
     </script>
 </head>
@@ -158,8 +163,8 @@
         <tr>
             <td colspan="2">
                 <div class="add-to-cart">
-                    <button id="remove-button" onClick="removeFromCart()">Remove Everything</button>
-                    <button id="add-to-cart-button" onClick="addToCart()">Add to Cart</button>                               
+                    <button class="remove-button" onClick="removeFromCart()">Remove Everything</button>
+                    <button class="green-button" onClick="addToCart()">Add to Cart</button>                               
                 </div>               
             </td>
         </tr>
@@ -177,12 +182,37 @@
                 <ul id="carts-items">
                 </ul>
             </td>
-            <td id="total-price">
+            <td id="price-display-area">
                 <h3>Total price: </h3>
                 <p id="price-display">$0</p>
             </td>
         </tr>
+        
+        <tr>
+            <td style="border:none;">   
+                <h4>Payment Method</h4>
+                <form action="payment" method="GET" id="payment-form">
+                    <input type="hidden" id="total-price" name="total-price" value=0>
+                    <div class="payment-method">
+                        <input type="radio" name="payment-type" value="visa" checked>
+                        <div id="visa"></div>
+                    </div>
+                    <div class="payment-method">
+                        <input type="radio" name="payment-type" value="paypal">
+                        <div id="paypal"></div>
+                    </div>
+                </form>
+            </td>
+            <td style="border:none;">
+                <button type="submit" form="payment-form" value="Submit" class="green-button" style="float: right; margin-right: 10px;">Confirm Purchase</button>
+            </td>
+        </tr>
+        
     </table>
-    </form>
+    
+    <!--form action="payment" method="GET" id="payment">
+        <input type="hidden" name="total-price" value=0>
+        <button type="submit" value="Submit">Confirm Purchase</button>
+    </form-->   
 </body>
 </html>

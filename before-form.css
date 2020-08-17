@@ -27,6 +27,15 @@ table, th, td {
     border-collapse: collapse;
 }
 
+tr:hover{
+    filter: brightness(120%);
+    /*background-color: white;*/
+} 
+
+tr:nth-child(odd) {
+    background-color: #262f3a;
+}
+
 td {
     padding-left: 10px;
 }
@@ -57,6 +66,10 @@ h3 {
     margin-block-end: 0px;
 }
 
+h4 {
+    margin-block-start: 0px;
+}
+
 h1 {
     margin-block-end: 0px;
     margin-block-start: 0px;
@@ -81,12 +94,12 @@ li {
     margin-left: 10px;
 }
 
-#total-price p {
+#total-price-area p {
     font-size: 20px;
     color: white;
 }
 
-#add-to-cart-button {
+.green-button {
     height: 2rem;
     width: 6rem;
     font-family: "Arial", sans-serif;
@@ -96,7 +109,7 @@ li {
     border: 1px solid transparent;
 }
 
-#remove-button {
+.remove-button {
     height: 2rem;
     width: 12rem;
     margin-right: 30px;
@@ -108,7 +121,7 @@ li {
     text-align: center;
 }
 
-#add-to-cart-button:hover, #remove-button:hover {
+.green-button:hover, .remove-button:hover {
     filter: brightness(90%);
 }
 
@@ -117,6 +130,33 @@ li {
     flex-direction: row;
     justify-content: flex-end;
     padding-right: 10px;
+}
+
+.payment-method {
+    display: flex;
+    flex-direction: row;
+}
+
+.payment-method div:last-child {
+    margin-left: auto;
+}
+
+#visa{
+    background-image: url("images/visa.png");
+    background-color: transparent;
+    background-size: cover;
+    height: 40px;
+    width: 50px;
+    border: 0;
+}
+
+#paypal{
+    background-image: url("images/paypal.png");
+    background-color: transparent;
+    background-size:cover;
+    height: 40px;
+    width: 100px;
+    border: 0;
 }
 
 /* Customize the label (the container) */

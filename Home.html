@@ -4,10 +4,12 @@
 
 <style type="text/css">
     h1 {
-        color:red;
+        color:rgb(255, 255, 255);
+		font-size: 40px;
         text-align: center;
         text-transform:capitalize;
         font-family: myFirstFont;
+		filter: drop-shadow(10px 10px 4px rgb(0, 0, 0));
     }
     p {
         color:darkgrey;
@@ -29,13 +31,16 @@
        -webkit-box-shadow:0 0 15px #A9A9A9;
        -moz-box-shadow:0 0 15px #A9A9A9;
        box-shadow:0 0 15px #A9A9A9;
+		width: 600px;
+		height: auto;
    }
    figure.mouseOver:hover figcaption.popup{
-       position : absolute;
-       top: 0;
-       left: 100px;
+       position: absolute;
+       top: 50px;
+       left: 400px;
        visibility: visible;
    }
+
    #gameImg{
 
    }
@@ -45,24 +50,91 @@
         src: url(titanone-regular-webfont.woff2);
     }
 
+	body {
+		background: #3c3d40;
+		margin: auto;
+	}
+	
+	.topnav {
+  		overflow: hidden;
+  		background-color: #1f1a1a;
+		width: 100%;
+	}
+	
+	.topnav a {
+  		float: left;
+  		color: lightgrey;
+  		text-align: center;
+  		padding: 30px 30px;
+  		text-decoration: none;
+  		font-size: 17px;
+		font-family: myFirstFont;
+        src: url(titanone-regular-webfont.woff2);
+
+	}
+
+	.topnav a:hover {
+		color: white;
+		background: black;
+	}
+	
+	.navbar {
+		  overflow: hidden;
+		  background-color: #333;
+		  position: fixed;
+		  bottom: 0;
+		  width: 100%;
+		
+	}
+
+	.navbar a {
+		  float: left;
+		  display: block;
+		  color: lightgrey;
+		  text-align: center;
+			padding: 30px 30px;
+  			text-decoration: none;
+  			font-size: 17px;
+			font-family: myFirstFont;
+        	src: url(titanone-regular-webfont.woff2);
+	}
+	
+	.navbar img {
+		padding: 30px 30px;
+	}
+	
+	.information {
+		color: white;
+	}
+	
+
 </style>
 </head>
+
 <body>
+
+<!-- Top navigator -->
+<div class = "topnav">
+	<a class = "active" href="Home.html">HOME</a>
+	<a href="Addsomething.html">STORE</a>
+	<a href="form.html">CHECK OUT</a>
+</div>
+
+<div style="display: table; vertical-align: center; margin: auto;">
 <h1>Fall Guys: Ultimate Knockout</h1>
 
 
-<a href="https://fallguys.com/"  >
 <figure class = "mouseOver">
 <div id = "gameImgDiv">
 
-        <img id = "gameImg" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1097150/header.jpg?t=1597424899" alt="Fall Guys Image" />
+        <img style="border-radius: 25px;" id = "gameImg" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1097150/header.jpg?t=1597424899" alt="Fall Guys Image" />
 </div>
 
-     <figcaption class = "popup">
+     <figcaption style="background: black; border-radius: 25px;" class = "popup">
 
-        <img src = "https://fallguys.com/svgs/logo-july2020.svg" alt="Fall Guys Image" />
-         <p>Fall Guys is a massively multiplayer party game with up
-             to 60 players online in a free-for-all <br />struggle through round after round of escalating chaos until one victor remains!</p>
+        <img style="width:500px; display: block; margin: auto;" src = "https://fallguys.com/svgs/logo-july2020.svg" alt="Fall Guys Image" />
+        <br /><br />
+		<p style="margin: auto; color: white;">Fall Guys is a massively multiplayer party game with up to 60 players online in a free-for-all struggle through round after round of escalating chaos until one victor remains!</p>
 
     </figcaption>
 
@@ -73,7 +145,7 @@
 <table border="0" id="HomepageTable">
     <tr>
         <td>
-           <iframe width="420" height="315"
+           <iframe  style="border-radius: 25px;" width="420" height="315"
                 src="https://www.youtube.com/embed/Wj3dUvGLjNQ?autoplay=1&mute=1">
            </iframe>
         </td>
@@ -81,17 +153,17 @@
     <tr>
         <td>
             <!-- information stands for designer and publisher's information and the rate in steam, better have different style -->
-            <a href="https://www.devolverdigital.com/" >
+            <a style="text-decoration: none;" href="https://www.devolverdigital.com/" target="_blank" >
                 <p class = "information" id = "publisher">
-                    Publisher: Devolver Digital <img height = "50px" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/02/Devolver_Digital.svg/1920px-Devolver_Digital.svg.png" />
+                    Publisher: Devolver Digital <img style="float:right;" height = "30px" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/02/Devolver_Digital.svg/1920px-Devolver_Digital.svg.png" />
                 </p>
             </a>
-            <a href="https://www.mediatonicgames.com/">
+            <a style="text-decoration: none;" href="https://www.mediatonicgames.com/" target="_blank" >
                 <p class = "information" id = "designer">
-                    Designer: Mediatonic <img height = "50px" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/09/Mediatonic.svg/1280px-Mediatonic.svg.png" />
+                    Designer: Mediatonic <img style="float:right;" height = "30px" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/09/Mediatonic.svg/1280px-Mediatonic.svg.png" />
                 </p>
             </a>
-            <a href="https://store.steampowered.com/app/1097150/Fall_Guys_Ultimate_Knockout/#app_reviews_hash/">
+            <a style="text-decoration: none;" href="https://store.steampowered.com/app/1097150/Fall_Guys_Ultimate_Knockout/#app_reviews_hash/" target="_blank">
                 <p class = "information" id = "rates">
                    See Steam players' review about this game.
                 </p>
@@ -101,11 +173,12 @@
     </tr>
 
 </table>
+</div>
 
-<div class = "logoDiv">
-    <p>Supported Platform</p>
-    <img id = "steamLogo" src = "https://store.cloudflare.steamstatic.com/public/shared/images/header/globalheader_logo.png?t=962016" />
-    <img id = "PS4Logo"   src = "https://psmedia.playstation.com/is/image/psmedia/ps4-hardware-contextual-nav-icon-01-en-09apr19_1556030268361?$ContextualNav_Logo$" />
+<div class = "navbar">
+    <a>Supported Platform</a>
+    <img style="width:100px;" id = "steamLogo" src = "https://store.cloudflare.steamstatic.com/public/shared/images/header/globalheader_logo.png?t=962016" />
+    <img style="width:100px;" id = "PS4Logo"   src = "https://psmedia.playstation.com/is/image/psmedia/ps4-hardware-contextual-nav-icon-01-en-09apr19_1556030268361?$ContextualNav_Logo$" />
 </div>
 
 </body>

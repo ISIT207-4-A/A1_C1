@@ -1,68 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
-    background-image: url("images/fallguys.png");
-    background-size: cover;
+    background-color: #1B2838;
 }
 
-#wrapper {
-    height: 350px;
-    width: 420px;
+.wrapper {
+    height: 600px;
+    width: 700px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     box-sizing: border-box;
-    background-color: #eae9e5;
+    background-color: #101822;
+    color:white;
     font-family: myFirstFont;
 }
+
+.wrapper .checkout_wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.wrapper .checkout_wrapper .product_info {
+    padding: 20px;
+    width: 50%;
+    position: relative;
+    background-color: #131e2b;
+}
+
+.wrapper .checkout_wrapper .product_info img{
+    top: 30%;
+    position: absolute;
+    width: 270px;
+}
+
+.wrapper .checkout_wrapper .product_info .content{ 
+    left: 50px;
+    top: 20%;
+    position: absolute;
+    text-align: center;
+}
+
+.wrapper .checkout_wrapper .checkout_form{
+    width: 50%;
+    padding: 15px;
+    margin: 50px 30px;
+}
+
+.wrapper .checkout_wrapper .checkout_form h3{
+    margin-bottom: 25px;
+    font-size: 30px;
+}
+
+.wrapper .checkout_wrapper .checkout_form .section{
+    margin-bottom: 15px;
+}
+
+.wrapper .checkout_wrapper .checkout_form .section input[type="text"]{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #696868;
+    font-family: myFirstFont;
+}
+
+.wrapper .checkout_wrapper .checkout_form .section input[type="text"]:focus{
+    border-color: black;
+}
+
+.wrapper .checkout_wrapper .checkout_form .section.last_section{
+    display: flex;
+    justify-content: space-between;
+}
+
+.wrapper .checkout_wrapper .checkout_form .section.last_section .item{
+    width: 48%;
+}
+
+.wrapper .checkout_wrapper .checkout_form .btn{
+    text-align: center;
+}
+
+.wrapper .checkout_wrapper .checkout_form .btn input[type="submit"]{
+    background: chartreuse;
+    padding: 10px;
+    font-family: myFirstFont;
+    border: none;
+    width: 50%;
+}
+
+.wrapper .checkout_wrapper .checkout_form  .details{
+    position: relative;
+    top: 5%;
+}
+
+#select {
+    width: 130px;
+}  
 
 @font-face {
     font-family: myFirstFont;
     src: url(titanone-regular-webfont.woff2);
-}
-
-#visa{
-    margin-left: 30px;
-    background-image: url("images/visa.png");
-    background-color: #eae9e5;
-    background-size:cover;
-    height: 100px;
-    width: 100px;
-    border: 0;
-}
-
-#paypal{
-    margin-left: 30px;
-    background-image: url("images/paypal.png");
-    background-color: #eae9e5;
-    background-size:cover;
-    height: 100px;
-    width: 200px;
-    border: 0;
-}
-
-#paypal:hover{
-    background-color: #e6dfc6;
-}
-
-#visa:hover{
-    background-color: #e6dfc6;
-}
-
-#paypal:active{
-    background-color:#e6dfc6;
-}
-
-#paypal:focus{
-    background-color:#e6dfc6;
-}
-
-#visa:active{
-    background-color:#e6dfc6;
-}
-
-#visa:focus{
-    background-color:#e6dfc6;
 }
 

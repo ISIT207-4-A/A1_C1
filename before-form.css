@@ -6,7 +6,7 @@ body {
 
 #wrapper {
     height: 600px;
-    width: 700px;
+    width: 720px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -86,7 +86,7 @@ li {
     color: white;
 }
 
-#submit {
+#add-to-cart-button {
     height: 2rem;
     width: 6rem;
     font-family: "Arial", sans-serif;
@@ -96,11 +96,23 @@ li {
     border: 1px solid transparent;
 }
 
-#submit:hover {
+#remove-button {
+    height: 2rem;
+    width: 12rem;
+    margin-right: 30px;
+    background-image: linear-gradient(90deg, #fa3320, #c70a0a);
+    border: 1px solid transparent;
+
+    font-family: "Arial", sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+#add-to-cart-button:hover, #remove-button:hover {
     filter: brightness(90%);
 }
 
-.submit-button {
+.add-to-cart {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;

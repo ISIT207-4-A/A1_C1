@@ -1,0 +1,78 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #1B2838;
+}
+
+
+#wrapper {
+    display: grid;
+    grid: 'login text signup';
+    height: auto;
+    width: auto;
+    /*grid-gap: 5rem;
+    padding: 1rem;*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    background-color: #101822;
+    font-family: myFirstFont;
+    color: #969696;
+}
+
+#signup {
+    float: right;
+}
+
+.login {
+    grid-area: login;
+    padding: 2rem;
+}
+
+.text {
+    grid-area: text;
+    width: 2px;
+    height: 150px;
+    background-image: url("https://community.cloudflare.steamstatic.com/public/images/skin_1/signin_divider.jpg");
+}
+
+.signup{
+    grid-area: signup;
+    padding: 2rem;
+}
+
+label {
+    padding-right: 1rem;
+}
+
+.form-group input {
+    float: right;
+}
+
+@font-face {
+    font-family: myFirstFont;
+    src: url(titanone-regular-webfont.woff2);
+}
+
+.form-group {
+    display: block;
+    margin-bottom: 2rem;
+
+}
+
+h1 {
+    text-align: center;
+}
+
+button {
+    height: 2rem;
+    width: 6rem;
+    font-family: "Arial", sans-serif;
+    font-weight: bold;
+    text-align: center;
+    background-image: linear-gradient(90deg, #d2ffa6, #93ff85);
+    border: 1px solid transparent;
+}
+

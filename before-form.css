@@ -23,7 +23,7 @@ body {
 }
 
 table, th, td {
-    border: 1px solid black;
+    border: 1px solid rgba(0,0,0,0.5);
     border-collapse: collapse;
 }
 
@@ -56,6 +56,15 @@ td {
 #submit {
     height: 2rem;
     width: 6rem;
+    font-family: "Arial", sans-serif;
+    font-weight: bold;
+    text-align: center;
+    background-image: linear-gradient(90deg, #d2ffa6, #93ff85);
+    border: 1px solid transparent;
+}
+
+#submit:hover {
+    filter: brightness(90%);
 }
 
 .submit-button {

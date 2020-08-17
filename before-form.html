@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="before-form.css">
 </head>
 <body>
+    <form action="form.html" method="get">
     <table id="wrapper">
         <tr>
             <th colspan="2">FALL GUYS</th>
@@ -20,7 +21,7 @@
             <td>
                 <div class="extension-pack">
                     <p>Fall Guys: Collectors Pack</p>
-                    <input type="radio" id="cp" value="collector-pack">
+                    <input type="radio" id="cp" name="cp" value="checked">
                 </div>
             </td>
         </tr>
@@ -28,7 +29,7 @@
             <td>
                 <div class="extension-pack">
                     <p>Fall Guys - Fast Food Custom Pack</p>
-                    <input type="radio" id="ffcp" value="fast-food-custom-pack">
+                    <input type="radio" id="ffcp" name="ffcp" value="checked">
                 </div>
             </td>
         </tr>
@@ -36,14 +37,14 @@
             <td>
                 <div class="extension-pack">
                     <p>Fall Guys - OST</p>
-                    <input type="radio" id="cp" value="collector-pack">
+                    <input type="radio" id="ost" name="ost" value="checked">
                 </div>
             </td>
         </tr>
         <tr>
             <td colspan="2">
                 <div class="submit-button">
-                    <button id="submit">Add to Cart</button>
+                    <input id="submit" type="submit" value="Add to Cart">                                 
                 </div>               
             </td>
         </tr>
@@ -56,6 +57,6 @@
             </td>
         </tr>
     </table>
-    
+</form>
 </body>
 </html>

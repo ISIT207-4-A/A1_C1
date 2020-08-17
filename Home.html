@@ -19,9 +19,7 @@
             vertical-align: top;
 
         }
-        #gameImgDiv{
 
-        }
         figcaption.popup{
             padding: 10px;
             background: #e1e1e1;
@@ -38,10 +36,6 @@
             top: 50px;
             left: 400px;
             visibility: visible;
-        }
-
-        #gameImg{
-
         }
 
         @font-face {
@@ -112,6 +106,10 @@
             padding: 10px;
             border: 1px solid #aaaaaa;
         }
+
+        #location {
+            float: right;
+        }
     </style>
     <script>
         // drag-N-drop referenced from examples from CSIT128 lecture slides
@@ -143,16 +141,48 @@
             audio.currentTime=18;
             audio.play();
         }
+
+        var time;
+    
+        function onStartFunction() {
+            if (typeof(Worker) !== "undefined") {
+                if (typeof(time) == "undefined") {
+                    time = new Worker("demo_workers.js");
+                }
+                time.onmessage = function(event) {
+                    document.getElementById("result").innerHTML = event.data;
+                };
+            } else {
+                document.getElementById("result").innerHTML = "Sorry! No Web Worker support.";
+            }
+        
+            var x = document.getElementById("location");
+            
+            function getLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                } else { 
+                    x.innerHTML = "Geolocation is not supported by this browser.";
+                }
+            }
+            
+            getLocation();
+            function showPosition(position) {
+                x.innerHTML = "Latitude: " + position.coords.latitude + 
+                "<br>Longitude: " + position.coords.longitude;
+            }
+        }
     </script>
 </head>
 
-<body>
+<body onload=onStartFunction()>
 
 <!-- Top navigator -->
 <div class = "topnav">
-    <a class = "active" href="Home.html">HOME</a>
-    <a href="Addsomething.html">STORE</a>
-    <a href="form.html">CHECK OUT</a>
+	<a class = "active" href="Home.html">HOME</a>
+	<a href="ListOfProduct.html">STORE</a>
+    <a href="before-form.html">CHECK OUT</a>
+    <a style="float:right;">Time spent: <output id="result"></output>s</a>
 </div>
 
 <div style="display: table; vertical-align: center; margin: auto;">
@@ -214,6 +244,7 @@
     <a>Supported Platform</a>
     <img style="width:100px;" id = "steamLogo" src = "https://store.cloudflare.steamstatic.com/public/shared/images/header/globalheader_logo.png?t=962016" />
     <img style="width:100px;" id = "PS4Logo"   src = "https://psmedia.playstation.com/is/image/psmedia/ps4-hardware-contextual-nav-icon-01-en-09apr19_1556030268361?$ContextualNav_Logo$" />
+    <a id="location"></a>
 </div>
 
 <img id="DragItem" src = "https://fallguys.com/images/fall-guy-ce-01.png" draggable="true" onDragStart="dragStart(event)" />

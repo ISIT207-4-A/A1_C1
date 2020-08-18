@@ -5,13 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <link rel="stylesheet" href="login.css">
+
+    <script>
+        function signupUrlEncode() {
+            //alert(encodeURIComponent(document.getElementById("country").value));
+            var username = document.getElementById("signup-username");
+            var password = document.getElementById("signup-password");
+            var email = document.getElementById("signup-email");
+
+            
+            username.value = encodeURIComponent(username.value);
+            password.value = encodeURIComponent(password.value);
+            email.value = encodeURIComponent(email.value);
+           
+            return true;
+        }
+
+        function loginUrlEncode() {
+            //alert(encodeURIComponent(document.getElementById("country").value));
+            var username = document.getElementById("login-username");
+            var password = document.getElementById("login-password");
+
+            
+            username.value = encodeURIComponent(username.value);
+            password.value = encodeURIComponent(password.value);
+           
+            return true;
+        }
+    </script>
 </head>
 
 <body>
     <div id="wrapper">
         <div id="login" class="login">
             <h1>LOG IN</h1>
-            <form action="/form.html" method="GET" id="login-form">
+            <form action="/form.html" method="GET" id="login-form" onsubmit="javascript:loginUrlEncode();">
                 <div class="form-group">
                     <label for="username">Username</label>
                     <input type="text" id="username" name="username" title="Username with no space">
@@ -21,7 +49,7 @@
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password"
                         pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,32}$"
-                        title="Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character">
+                        title="Minimum eight characters, maximum 32 characters, at least one uppercase letter, one lowercase letter, one number">
                 </div>
                      
             </form>
@@ -32,24 +60,28 @@
         </div>
         <div id="signup" class="signup">
             <h1>SIGN UP</h1>
-            <form action="/form.html" method="GET" id="signup-form">
+            <form action="/form.html" method="GET" id="signup-form" onsubmit="javascript:signupUrlEncode();">
                 <div class="form-group">
                     <label for="username">Username</label>
-                    <input type="text" id="username" name="username" title="Username with no space">
+                    <input type="text" id="signup-username" name="username" title="Username with no space">
                 </div>
 
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="text" id="password" name="password" 
+                    <input type="text" id="signup-email" name="email" 
                         pattern="^[a-z][a-z0-9_\.]{5,32}@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,2}$"
                         title="Email format">
                 </div>
                 
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" id="password" name="password" 
+                    <input type="password" id="signup-password" name="password" 
                         pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,32}$"
-                        title="Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character">
+                        title="Minimum eight characters, maximum 32 characters, at least one uppercase letter, one lowercase letter, one number">
+                </div>
+                <div class="form-group">
+                    <label for="birthday">Birthday</label>
+                    <input type="datetime-local" id="birthday" name="birthday">
                 </div>
             </form>
             <button type="submit" form="signup-form" value="Submit">Sign Up</button>    

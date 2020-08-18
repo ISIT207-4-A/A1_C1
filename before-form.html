@@ -116,6 +116,8 @@
             //update form's total price after removal
             document.getElementById("total-price").value = items.totalPrice();
         }
+
+        
     </script>
 </head>
 <body onload="uncheck()">
@@ -129,7 +131,7 @@
             <td rowspan="3" style="background-image: url('images/fallguys.png'); 
                                     background-size: cover; 
                                     background-repeat: no-repeat;
-                                    background-attachment: fixed;
+                                    background-attachment: scroll;
                                     background-position: center;"></td>
             <td>
                 <div class="extension-pack">
@@ -191,28 +193,39 @@
         <tr>
             <td style="border:none;">   
                 <h4>Payment Method</h4>
-                <form action="payment" method="GET" id="payment-form">
+                <form action="payment" method="GET" name="paymentform" id="payment-form">
                     <input type="hidden" id="total-price" name="total-price" value=0>
-                    <div class="payment-method">
+                    <div class="payment-method form">
                         <input type="radio" name="payment-type" value="visa" checked>
                         <div id="visa"></div>
                     </div>
-                    <div class="payment-method">
+                    <div class="payment-method form">
                         <input type="radio" name="payment-type" value="paypal">
                         <div id="paypal"></div>
+                    </div>
+                    <div class="form" style="display:flex;">
+                        <label for="card-number">Card Number</label>
+                        <input type="text" id="card-number" name="card-number"
+                            pattern="^4[0-9]{12}(?:[0-9]{3})?$"
+                            placeholder="16 digits start with '4'"
+                            title="Visa Card Number"
+                            style="margin-left: 10px;">
+                    </div>
+                    <div class="form" style="display:flex; ">
+                        <label for="country">Country</label>
+                        <select name="country" id="country" style="margin-left:10px;">
+                            <option value="Australia">Australia</option>
+                            <option value="New Zealand">New Zealand</option>
+                        </select>
                     </div>
                 </form>
             </td>
             <td style="border:none;">
-                <button type="submit" form="payment-form" value="Submit" class="green-button" style="float: right; margin-right: 10px;">Confirm Purchase</button>
+                <button type="submit" form="payment-form" value="Submit" class="green-button" 
+                        style="float: right; margin-right: 10px;">Confirm Purchase</button>
             </td>
         </tr>
         
     </table>
-    
-    <!--form action="payment" method="GET" id="payment">
-        <input type="hidden" name="total-price" value=0>
-        <button type="submit" value="Submit">Confirm Purchase</button>
-    </form-->   
 </body>
 </html>

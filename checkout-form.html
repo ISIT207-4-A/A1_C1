@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Page</title>
-    <link rel="stylesheet" href="before-form.css">
+    <title>Checkout Page</title>
+    <link rel="stylesheet" href="checkout-form.css">
 
     <script>
         //call this function onload to uncheck everything after reloading
@@ -167,7 +167,7 @@
                 <div class="add-to-cart">
                     <button class="remove-button" onClick="removeFromCart()">Remove Everything</button>
                     <button class="green-button" onClick="addToCart()">Add to Cart</button>                               
-                </div>               
+                </div>
             </td>
         </tr>
         <tr id="requirements">
@@ -184,48 +184,19 @@
                 <ul id="carts-items">
                 </ul>
             </td>
-            <td id="price-display-area">
-                <h3>Total price: </h3>
-                <p id="price-display">$0</p>
+            <td>
+                <div>
+                    <h3>Total price: </h3>
+                    <p id="price-display">$0</p>
+                </div>
+                <div id="payment-button-area">
+                    <!-- this button does not send form, only link to payment page-->
+                    <a href="payment-form.html">
+                        <button type="submit" value="Submit" class="green-button">Process Payment</button>
+                    </a>
+                </div>
             </td>
         </tr>
-        
-        <tr>
-            <td style="border:none;">   
-                <h4>Payment Method</h4>
-                <form action="payment" method="GET" name="paymentform" id="payment-form">
-                    <input type="hidden" id="total-price" name="total-price" value=0>
-                    <div class="payment-method form">
-                        <input type="radio" name="payment-type" value="visa" checked>
-                        <div id="visa"></div>
-                    </div>
-                    <div class="payment-method form">
-                        <input type="radio" name="payment-type" value="paypal">
-                        <div id="paypal"></div>
-                    </div>
-                    <div class="form" style="display:flex;">
-                        <label for="card-number">Card Number</label>
-                        <input type="text" id="card-number" name="card-number"
-                            pattern="^4[0-9]{12}(?:[0-9]{3})?$"
-                            placeholder="16 digits start with '4'"
-                            title="Visa Card Number"
-                            style="margin-left: 10px;">
-                    </div>
-                    <div class="form" style="display:flex; ">
-                        <label for="country">Country</label>
-                        <select name="country" id="country" style="margin-left:10px;">
-                            <option value="Australia">Australia</option>
-                            <option value="New Zealand">New Zealand</option>
-                        </select>
-                    </div>
-                </form>
-            </td>
-            <td style="border:none;">
-                <button type="submit" form="payment-form" value="Submit" class="green-button" 
-                        style="float: right; margin-right: 10px;">Confirm Purchase</button>
-            </td>
-        </tr>
-        
     </table>
 </body>
 </html>

@@ -5,7 +5,7 @@ body {
 }
 
 #wrapper {
-    height: 600px;
+    height: 800px;
     width: 720px;
     position: absolute;
     top: 50%;
@@ -29,7 +29,6 @@ table, th, td {
 
 tr:hover{
     filter: brightness(120%);
-    /*background-color: white;*/
 } 
 
 tr:nth-child(odd) {
@@ -132,6 +131,7 @@ li {
     padding-right: 10px;
 }
 
+
 .payment-method {
     display: flex;
     flex-direction: row;
@@ -139,6 +139,10 @@ li {
 
 .payment-method div:last-child {
     margin-left: auto;
+}
+
+.form {
+    padding: 5px;
 }
 
 #visa{

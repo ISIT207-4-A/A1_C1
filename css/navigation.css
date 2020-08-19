@@ -1,8 +1,9 @@
 	.topnav {
             overflow: hidden;
             background-color: #1f1a1a;
+			position:fixed;
             width: 100%;
-	    z-index: 100;
+			z-index: 100;
         }
 
         .topnav a {
@@ -28,7 +29,7 @@
             position: fixed;
             bottom: 0;
             width: 100%;
-	z-index: 100;
+			z-index: 100;
         }
 
         .navbar a {
@@ -36,7 +37,7 @@
             display: block;
             color: lightgrey;
             text-align: center;
-            padding: 30px 30px;
+            padding: 15px 15px;
             text-decoration: none;
             font-size: 17px;
             font-family: myFirstFont;
@@ -44,5 +45,5 @@
         }
 
         .navbar img {
-            padding: 30px 30px;
+            padding: 15px 15px;
         }

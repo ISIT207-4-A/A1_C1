@@ -4,6 +4,11 @@ body {
     background-color: #1B2838;
 }
 
+h1 {
+	color: white;
+	filter: drop-shadow(10px 10px 4px rgb(0, 0, 0));
+}
+
 
 #wrapper {
     display: grid;

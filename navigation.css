@@ -1,0 +1,47 @@
+	.topnav {
+            overflow: hidden;
+            background-color: #1f1a1a;
+            width: 100%;
+        }
+
+        .topnav a {
+            float: left;
+            color: lightgrey;
+            text-align: center;
+            padding: 30px 30px;
+            text-decoration: none;
+            font-size: 17px;
+            font-family: myFirstFont;
+            src: url(titanone-regular-webfont.woff2);
+
+        }
+
+        .topnav a:hover {
+            color: white;
+            background: black;
+        }
+
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: lightgrey;
+            text-align: center;
+            padding: 30px 30px;
+            text-decoration: none;
+            font-size: 17px;
+            font-family: myFirstFont;
+            src: url(titanone-regular-webfont.woff2);
+        }
+
+        .navbar img {
+            padding: 30px 30px;
+        }

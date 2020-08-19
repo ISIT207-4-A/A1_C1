@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+	<link rel="stylesheet" href="navigation.css">
     <style type="text/css">
         h1 {
             color:rgb(255, 255, 255);
@@ -48,54 +50,6 @@
             margin: auto;
         }
 
-        .topnav {
-            overflow: hidden;
-            background-color: #1f1a1a;
-            width: 100%;
-        }
-
-        .topnav a {
-            float: left;
-            color: lightgrey;
-            text-align: center;
-            padding: 30px 30px;
-            text-decoration: none;
-            font-size: 17px;
-            font-family: myFirstFont;
-            src: url(titanone-regular-webfont.woff2);
-
-        }
-
-        .topnav a:hover {
-            color: white;
-            background: black;
-        }
-
-        .navbar {
-            overflow: hidden;
-            background-color: #333;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-
-        }
-
-        .navbar a {
-            float: left;
-            display: block;
-            color: lightgrey;
-            text-align: center;
-            padding: 30px 30px;
-            text-decoration: none;
-            font-size: 17px;
-            font-family: myFirstFont;
-            src: url(titanone-regular-webfont.woff2);
-        }
-
-        .navbar img {
-            padding: 30px 30px;
-        }
-
         .information {
             color: white;
         }
@@ -116,6 +70,7 @@
         function dragOver(event){
             event.preventDefault();
         }
+
         function dragStart(event){
         // get the dragged element ID
             var dragId = event.target.id;
@@ -180,8 +135,8 @@
 <!-- Top navigator -->
 <div class = "topnav">
 	<a class = "active" href="Home.html">HOME</a>
-	<a href="ListOfProduct.html">STORE</a>
-    <a href="checkout-form.html">CHECK OUT</a>
+	<a href="checkout-form.html">STORE</a>
+    <a href="payment-form.html">CHECK OUT</a>
     <a href="login.html">LOG IN</a>
     <a style="float:right;">Time spent: <output id="result"></output>s</a>
 </div>
@@ -250,8 +205,11 @@
 
 <img id="DragItem" src = "https://fallguys.com/images/fall-guy-ce-01.png" draggable="true" onDragStart="dragStart(event)" />
 
+<a style="font-family: myFirstFont; src: url(titanone-regular-webfont.woff2);color:white;">
 <span id="FinishPoint" onDrop="drop(event)"
-      onDragOver="dragOver(event)">Drop this guy here</span>
+      onDragOver="dragOver(event)" style="filter: drop-shadow(3px 3px 2px rgb(0, 0, 0)); border-radius: 25px;">
+Drop this guy here!</a>
+</span>
 
 
 </body>

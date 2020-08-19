@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout Page</title>
     <link rel="stylesheet" href="checkout-form.css">
+    <link rel="stylesheet" href="navigation.css">
 
     <script>
         //call this function onload to uncheck everything after reloading
@@ -120,6 +121,16 @@
         
     </script>
 </head>
+    
+<body>
+<div class = "topnav">
+	<a class = "active" href="Home.html">HOME</a>
+	<a href="checkout-form.html">STORE</a>
+    <a href="payment-form.html">CHECK OUT</a>
+    <a href="login.html">LOG IN</a>
+    <a style="float:right;">Time spent: <output id="result"></output>s</a>
+</div>
+    </body>
 <body onload="uncheck()">
     <table id="wrapper">
         <tr>

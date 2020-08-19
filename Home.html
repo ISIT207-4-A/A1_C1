@@ -2,7 +2,7 @@
 <html>
 <head>
 
-	<link rel="stylesheet" href="navigation.css">
+	<link rel="stylesheet" href="css/navigation.css">
     <style type="text/css">
         h1 {
             color:rgb(255, 255, 255);
@@ -42,7 +42,7 @@
 
         @font-face {
             font-family: myFirstFont;
-            src: url(titanone-regular-webfont.woff2);
+            src: url(css/fonts/titanone-regular-webfont.woff2);
         }
 
         body {
@@ -91,7 +91,7 @@
             var dropElement = document.getElementById("FinishPoint");
             dropElement.innerHTML = "Congratulations!";
 
-            var audio = new Audio("397435__foolboymedia__crowd-cheer-ii.wav");
+            var audio = new Audio("audio/397435__foolboymedia__crowd-cheer-ii.wav");
             // the audio have 20s in total, only play for 2s
             audio.currentTime=18;
             audio.play();
@@ -102,7 +102,7 @@
         function onStartFunction() {
             if (typeof(Worker) !== "undefined") {
                 if (typeof(time) == "undefined") {
-                    time = new Worker("demo_workers.js");
+                    time = new Worker("javascript/demo_workers.js");
                 }
                 time.onmessage = function(event) {
                     document.getElementById("result").innerHTML = event.data;
@@ -126,6 +126,11 @@
                 x.innerHTML = "Latitude: " + position.coords.latitude + 
                 "<br>Longitude: " + position.coords.longitude;
             }
+        }
+
+        function hideLocation()
+        {
+            document.getElementById("location").innerHTML = "";
         }
     </script>
 </head>
@@ -200,12 +205,12 @@
     <a>Supported Platform</a>
     <img style="width:100px;" id = "steamLogo" src = "https://store.cloudflare.steamstatic.com/public/shared/images/header/globalheader_logo.png?t=962016" />
     <img style="width:100px;" id = "PS4Logo"   src = "https://psmedia.playstation.com/is/image/psmedia/ps4-hardware-contextual-nav-icon-01-en-09apr19_1556030268361?$ContextualNav_Logo$" />
-    <a id="location"></a>
+    <a href="javascript:hideLocation();" id="location"></a>
 </div>
 
 <img id="DragItem" src = "https://fallguys.com/images/fall-guy-ce-01.png" draggable="true" onDragStart="dragStart(event)" />
 
-<a style="font-family: myFirstFont; src: url(titanone-regular-webfont.woff2);color:white;">
+<a style="font-family: myFirstFont; src: url(css/fonts/titanone-regular-webfont.woff2);color:white;">
 <span id="FinishPoint" onDrop="drop(event)"
       onDragOver="dragOver(event)" style="filter: drop-shadow(3px 3px 2px rgb(0, 0, 0)); border-radius: 25px;">
 Drop this guy here!</a>

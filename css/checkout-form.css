@@ -19,7 +19,7 @@ body {
 
 @font-face {
     font-family: myFirstFont;
-    src: url(titanone-regular-webfont.woff2);
+    src: url(fonts/titanone-regular-webfont.woff2);
 }
 
 table, th, td {
@@ -150,24 +150,6 @@ li {
 
 .form {
     padding: 5px;
-}
-
-#visa{
-    background-image: url("images/visa.png");
-    background-color: transparent;
-    background-size: cover;
-    height: 40px;
-    width: 50px;
-    border: 0;
-}
-
-#paypal{
-    background-image: url("images/paypal.png");
-    background-color: transparent;
-    background-size:cover;
-    height: 40px;
-    width: 100px;
-    border: 0;
 }
 
 /* Customize the label (the container) */

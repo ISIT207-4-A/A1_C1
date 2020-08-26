@@ -88,7 +88,7 @@ body {
     text-align: center;
 }
 
-.wrapper .checkout_wrapper .checkout_form .btn input[type="button"]{
+.wrapper .checkout_wrapper .checkout_form .btn input[type="submit"]{
     background: chartreuse;
     padding: 10px;
     font-family: myFirstFont;

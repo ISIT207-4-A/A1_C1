@@ -37,25 +37,25 @@ img:hover {
 <link rel="stylesheet" href="css/navigation.css">
 <script>
   if (document.images) {
-    //create "on" array and populate with Image objects
+
     var onImgArray = new Array( );
     onImgArray["first"] = new Image(400,400);
     onImgArray["second"] = new Image(400,400);
     onImgArray["third"] = new Image(400,400);
     onImgArray["forth"] = new Image(400,400);
-    // set URLs for the "on" images
+
     onImgArray["first"].src = "css/images/gallery1.jpg";
     onImgArray["second"].src = "css/images/gallery2.jpg";
     onImgArray["third"].src = "css/images/gallery3.jpg";
     onImgArray["forth"].src = "css/images/gallery4.jpg";
   
-    //create "off" array and populate with Image objects
+
     var offImgArray = new Array( );
     offImgArray["first"] = new Image(400,400);
     offImgArray["second"] = new Image(400,400);
     offImgArray["third"] = new Image(400,400);
     offImgArray["forth"] = new Image(400,400);
-    // set URLs for the "off" images
+
     offImgArray["first"].src = "css/images/gallery4.jpg";
     offImgArray["second"].src = "css/images/gallery3.jpg";
     offImgArray["third"].src = "css/images/gallery2.jpg";
@@ -82,6 +82,11 @@ var brnCntr=2
     banners[1] = "css/images/gallery2.jpg"
     banners[2] = "css/images/gallery3.jpg"
     banners[3] = "css/images/gallery4.jpg"
+    var ref = new Array( );
+    ref[0]="https://store.steampowered.com/app/1097150/Fall_Guys_Ultimate_Knockout/"
+    ref[1]="https://fallguys.com/"
+    ref[2]="https://store.playstation.com/en-au/product/EP3643-CUSA17714_00-FALLGUYSPS4EU000"
+    ref[3]="https://www.microsoft.com/en-us/p/fall-guys-ultimate-knockout-guide/9ndn2r9w5x8f?cid=msft_web_chart&activetab=pivot:overviewtab"
 
 }
 function changeImage() {
@@ -91,6 +96,11 @@ function changeImage() {
     document.getElementById("second").src=banners[brnCntr]
     document.getElementById("third").src=banners[brnCntr]
     document.getElementById("forth").src=banners[brnCntr]
+
+    document.getElementById("firstAnchor").href=ref[0]
+    document.getElementById("secondAnchor").href=ref[1]
+    document.getElementById("thirdAnchor").href=ref[2]
+    document.getElementById("forthAnchor").href=ref[3]
     setTimeout("changeImage()",2500)
 }
 </script>
@@ -105,14 +115,14 @@ function changeImage() {
     </div>
 
     <div class="wrapper">
-        <a
+        <a  id="firstAnchor"
             onmouseover="imageOn('first'); return setMsg('first');" 
             onmouseout="imageOff('first'); return setMsg('');">
             <img src="css/images/gallery1.jpg" name="first" id="first" height="300" width="350" 
             border="0" alt= "first">
         </a>
 
-        <a
+        <a  id="secondAnchor"
             onmouseover="imageOn('second'); return setMsg('second');" 
             onmouseout="imageOff('second'); return setMsg('');">
             <img src="css/images/gallery2.jpg" name="second" id="second"height="300" width="350" 
@@ -121,14 +131,14 @@ function changeImage() {
 
     <br/>
 
-        <a 
+        <a  id="thirdAnchor"
             onmouseover="imageOn('third'); return setMsg('third');" 
             onmouseout="imageOff('third'); return setMsg('');">
             <img src="css/images/gallery3.jpg" name="third" id="third" height="300" 
             width="350" border="0" alt="third">
         </a>
 
-        <a
+        <a  id="forthAnchor"
             onmouseover="imageOn('forth'); return setMsg('forth');" 
             onmouseout="imageOff('forth'); return setMsg('');">
             <img src="css/images/gallery4.jpg" name="forth" id="forth"height="300" 

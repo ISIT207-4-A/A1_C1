@@ -6,6 +6,7 @@
     <title>Login Page</title>
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/navigation.css">
+    <script src="javascript/login.js"></script>
 
     <script>
         function signupUrlEncode() {
@@ -62,8 +63,9 @@
                         title="Minimum eight characters, maximum 32 characters, at least one uppercase letter, one lowercase letter, one number">
                 </div>
                      
+                <button type="button" onclick="rewritePage(this.form);">Login</button> 
             </form>
-            <button type="submit" form="login-form" value="Submit">Login</button> 
+            
         </div>
         <div class="text">
             

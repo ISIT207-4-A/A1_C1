@@ -1,0 +1,143 @@
+<html>    
+<head>
+<title></title>
+<style type="text/css">
+
+body{
+    background-color: #101822;
+    font-family: myFirstFont;
+}
+
+.wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+img{
+    object-fit: cover;
+    transition: transform 1s;
+}
+
+img:hover {
+    transform: scale(1.1);
+}
+
+@font-face {
+    font-family: myFirstFont;
+    src: url(fonts/titanone-regular-webfont.woff2);
+}
+
+</style>
+<link rel="stylesheet" href="css/navigation.css">
+<script>
+  if (document.images) {
+    //create "on" array and populate with Image objects
+    var onImgArray = new Array( );
+    onImgArray["first"] = new Image(400,400);
+    onImgArray["second"] = new Image(400,400);
+    onImgArray["third"] = new Image(400,400);
+    onImgArray["forth"] = new Image(400,400);
+    // set URLs for the "on" images
+    onImgArray["first"].src = "css/images/gallery1.jpg";
+    onImgArray["second"].src = "css/images/gallery2.jpg";
+    onImgArray["third"].src = "css/images/gallery3.jpg";
+    onImgArray["forth"].src = "css/images/gallery4.jpg";
+  
+    //create "off" array and populate with Image objects
+    var offImgArray = new Array( );
+    offImgArray["first"] = new Image(400,400);
+    offImgArray["second"] = new Image(400,400);
+    offImgArray["third"] = new Image(400,400);
+    offImgArray["forth"] = new Image(400,400);
+    // set URLs for the "off" images
+    offImgArray["first"].src = "css/images/gallery4.jpg";
+    offImgArray["second"].src = "css/images/gallery3.jpg";
+    offImgArray["third"].src = "css/images/gallery2.jpg";
+    offImgArray["forth"].src = "css/images/gallery1.jpg";
+}
+function imageOn(imgName) {
+        document.images[imgName].src = onImgArray[imgName].src;
+}
+function imageOff(imgName) {
+        document.images[imgName].src = offImgArray[imgName].src;
+}
+function setMsg(msg) {
+    window.status = msg;
+    return true;
+}
+
+
+
+
+var brnCntr=2
+   if (document.images) {
+    var banners = new Array( );
+    banners[0] = "css/images/gallery1.jpg"
+    banners[1] = "css/images/gallery2.jpg"
+    banners[2] = "css/images/gallery3.jpg"
+    banners[3] = "css/images/gallery4.jpg"
+
+}
+function changeImage() {
+    brnCntr=brnCntr + 1
+    if (brnCntr==4)brnCntr=0
+    document.getElementById("first").src=banners[brnCntr]
+    document.getElementById("second").src=banners[brnCntr]
+    document.getElementById("third").src=banners[brnCntr]
+    document.getElementById("forth").src=banners[brnCntr]
+    setTimeout("changeImage()",2500)
+}
+</script>
+</head>
+<body onload="changeImage()">
+    <div class = "topnav">
+        <a href="Home.html">HOME</a>
+        <a href="checkout-form.html">STORE</a>
+        <a href="payment-form.html">CHECK OUT</a>
+        <a href="login.html">LOG IN</a>
+        <a href="gallery.html">GALLERY</a>
+    </div>
+
+    <div class="wrapper">
+        <a
+            onmouseover="imageOn('first'); return setMsg('first');" 
+            onmouseout="imageOff('first'); return setMsg('');">
+            <img src="css/images/gallery1.jpg" name="first" id="first" height="300" width="350" 
+            border="0" alt= "first">
+        </a>
+
+        <a
+            onmouseover="imageOn('second'); return setMsg('second');" 
+            onmouseout="imageOff('second'); return setMsg('');">
+            <img src="css/images/gallery2.jpg" name="second" id="second"height="300" width="350" 
+            border="0" alt="second">
+        </a>
+
+    <br/>
+
+        <a 
+            onmouseover="imageOn('third'); return setMsg('third');" 
+            onmouseout="imageOff('third'); return setMsg('');">
+            <img src="css/images/gallery3.jpg" name="third" id="third" height="300" 
+            width="350" border="0" alt="third">
+        </a>
+
+        <a
+            onmouseover="imageOn('forth'); return setMsg('forth');" 
+            onmouseout="imageOff('forth'); return setMsg('');">
+            <img src="css/images/gallery4.jpg" name="forth" id="forth"height="300" 
+            width="350" border="0" alt="forth">
+        </a>
+    </div>
+
+
+
+</body>
+</html>
+
+ 
+
+
+

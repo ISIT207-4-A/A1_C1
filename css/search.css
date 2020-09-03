@@ -1,0 +1,65 @@
+
+#display {
+	max-width: 1000px;
+  	margin: auto;
+	padding-top:150px;
+}
+
+ @font-face {
+            font-family: myFirstFont;
+            src: url(css/fonts/titanone-regular-webfont.woff2);
+        }
+
+  body {
+
+            margin: auto;
+        }
+
+
+	input[type=text], select {
+		width: 450px;
+		padding: 12px 20px;
+  		margin: 8px 10px;
+  		display: inline-block;
+  		border: 1px solid #ccc;
+  		border-radius: 4px;
+  		box-sizing: border-box;
+}
+
+button {
+  width: 450px;
+  background-color:#2D8EFF;
+  color: white;
+  padding: 12px 20px;
+  margin: 8px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #236DFA;
+}
+
+td, th {
+	border: 1 px solid #ddd;
+	padding: 8px;
+	width: 500px;
+}
+tr:nth-child(even){
+	background-color: #f2f2f2;
+}
+
+
+
+th {
+	padding-top:12px;
+	padding-bottom:12px;
+	text-align:center;
+	background-color: dodgerblue;
+	color: white;
+}
+
+#lowPrice, #upPrice, #lowWeight, #upWeight{
+	width: 200px;
+}

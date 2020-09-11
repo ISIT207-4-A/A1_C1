@@ -18,6 +18,66 @@
             margin: auto;
         }
 
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 17px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 13px;
+  width: 13px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: dodgerblue;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px dodgerblue;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(13px);
+  -ms-transform: translateX(13px);
+  transform: translateX(13px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
 </style>
 
 <head>
@@ -41,6 +101,8 @@
 <table id="display">
 <tr>
 <td style="margin-top: 0px; padding-top: 0px; vertical-align: top;">
+
+
 <input type="text"  id="nameCode" placeholder="Type here to search" onkeyup="changeCSS()"></input>
 <br />
 
@@ -100,14 +162,71 @@
 
 	        <button onClick="submitSearch()">Submit</button>
             <button onClick="reset()">Reset</button>
+
+
+<br /><br /><br /><br />
+<h1 style="text-align: center;">Assignment 2 - Component 1</h1>
+<input id="myInput" type="text" placeholder="Search...">
+
+<input id="adding" type="text" placeholder="Input a name" style="width: 200px;">
+<button onClick="addObject()" style="width: 200px">Add</button>
+
+<button onClick="sortObject()">Sort by name</button>
+<button onClick="sortCode()">Sort by code</button>
+<br /><br />
+
+
 </td>
-<td>
-	<span id="table"></span>
+<td style="vertical-align: top;">
+
+	<span id="table" style="margin-top:0;"></span>
+
 </td>
 </tr>
 </table>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
+
+//A2 Comp 1
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+
+
+function addObject() {
+	var name = document.getElementById("adding").value;
+	let newObject = {
+		"name": name
+	}
+	itemList.push(newObject);
+	document.getElementById("table").innerHTML = showTable(itemList);
+	document.getElementById("adding").value="";
+	alert("Item "+name+" is added successfully!")
+}
+
+function sortObject() {
+	let sortedItems = itemList.sort(
+		(c1,c2) => c1.name.localeCompare(c2.name)
+	);
+	itemList = sortedItems;
+	document.getElementById("table").innerHTML = showTable(itemList);
+}
+
+function sortCode() {
+	let sortedItems = itemList.sort(
+		(c1,c2) => c1.code.localeCompare(c2.code)
+	);
+	itemList = sortedItems;
+	document.getElementById("table").innerHTML = showTable(itemList);
+}
+
+
 
 window.onload = function() {
 	document.getElementById("table").innerHTML = showTable(itemList);
@@ -239,6 +358,7 @@ window.onload = function() {
 	function showTable(list)
 	{
 		var t="<table><tr><th>Name</th><th>Code</th><th>Color</th><th>Price</th><th>Weight</th></tr>";
+		t+='<tbody id="myTable">';
 		for (var i=0; i<list.length; i++){
 			var tr="<tr>";
 			tr+= "<td>" + list[i].name + "</td>";
@@ -248,6 +368,7 @@ window.onload = function() {
 			tr+= "<td>" + list[i].weight + "</td>";
 			t+=tr;
 		}
+		t+="</tbody>"
 		t+="</table>";
 		return t;
 	}
